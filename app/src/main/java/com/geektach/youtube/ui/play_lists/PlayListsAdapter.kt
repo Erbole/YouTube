@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geektach.youtube.R
 import com.geektach.youtube.databinding.PlaylistsItemsBinding
-import com.geektach.youtube.extencions.loadImage
+import com.geektach.youtube.extencions.load
 import com.geektach.youtube.models.Items
 
 class PlayListsAdapter(private val playlists: ArrayList<Items>) :
@@ -36,7 +36,7 @@ class PlayListsAdapter(private val playlists: ArrayList<Items>) :
     inner class PlayListViewHolder(private val binding: PlaylistsItemsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(items: Items) {
-            binding.ivPlaylist.loadImage(items.snippet.thumbnails.medium.url)
+            binding.ivPlaylist.load(items.snippet.thumbnails.medium.url)
             binding.tvPlaylistTitle.text = items.snippet.title
             binding.tvVideoCounter.text = itemView.context.getString(
                 R.string.video_series, items.contentDetails.itemCount

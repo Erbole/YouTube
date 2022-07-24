@@ -21,6 +21,6 @@ interface YouTubeApi {
         @Query("part") part: String,
         @Query("key") apiKey: String,
         @Query("playlistId") playlistId: String,
-        @Query("maxResults") maxResults: String,
+        @Query("maxResults") maxResults: String
     ): Response<PlaylistItems>
 }

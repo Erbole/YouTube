@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geektach.youtube.databinding.PlaylistVideosItemBinding
-import com.geektach.youtube.extencions.loadImage
+import com.geektach.youtube.extencions.load
 import com.geektach.youtube.models.Items
 
 class PlaylistVideosAdapter(private var videos: ArrayList<Items>) :
@@ -25,7 +25,7 @@ class PlaylistVideosAdapter(private var videos: ArrayList<Items>) :
     inner class VideoViewHolder(private val binding: PlaylistVideosItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(items: Items) {
-            binding.ivVideo.loadImage(items.snippet.thumbnails.medium.url)
+            binding.ivVideo.load(items.snippet.thumbnails.medium.url)
             binding.tvVideoTitle.text = items.snippet.title
             binding.tvVideoTit.text = items.contentDetails.videoPublishedAt
         }

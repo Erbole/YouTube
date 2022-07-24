@@ -2,7 +2,6 @@ package com.geektach.youtube.remote
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.geektach.youtube.App
 import com.geektach.youtube.BuildConfig
 import com.geektach.youtube.core.Constant
 import com.geektach.youtube.models.Playlist
@@ -10,11 +9,9 @@ import com.geektach.youtube.models.PlaylistItems
 import kotlinx.coroutines.Dispatchers
 import retrofit2.Response
 
-class Repository {
+class Repository(private val youTubeApi: YouTubeApi) {
 
-    private val youTubeApi = App.youTubeApi
-
-    fun getPlayLists() = liveData(Dispatchers.IO) {
+    fun getPlayLists(): LiveData<Response<Playlist>> = liveData(Dispatchers.IO) {
         val response = youTubeApi.getPlaylists(
             Constant.PART,
             Constant.CHANNEL_ID,

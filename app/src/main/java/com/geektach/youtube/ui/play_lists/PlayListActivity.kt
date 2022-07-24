@@ -1,17 +1,15 @@
 package com.geektach.youtube.ui.play_lists
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import com.geektach.youtube.core.BaseActivity
 import com.geektach.youtube.databinding.ActivityPlaylistsBinding
 import com.geektach.youtube.models.Items
 import com.geektach.youtube.ui.play_list_videos.PlayListVideosActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PlayListActivity : BaseActivity<ActivityPlaylistsBinding>(), ItemClickListener {
 
-    private val viewModel by lazy {
-        ViewModelProvider(this)[PlayListsViewModel::class.java]
-    }
+    private val viewModel: PlayListsViewModel by viewModel()
     private var playlists: ArrayList<Items>? = arrayListOf()
     private val playlistsAdapter by lazy {
         playlists?.let { PlayListsAdapter(it) }

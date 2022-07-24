@@ -1,16 +1,15 @@
 package com.geektach.youtube.ui.play_lists
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.geektach.youtube.App
 import com.geektach.youtube.models.Playlist
+import com.geektach.youtube.remote.Repository
 import retrofit2.Response
 
-class PlayListsViewModel : ViewModel() {
+class PlayListsViewModel(private val repository: Repository) : ViewModel() {
 
     fun getPlayLists(): LiveData<Response<Playlist>> {
-        return App.repository.getPlayLists()
+        return repository.getPlayLists()
     }
 
 }
