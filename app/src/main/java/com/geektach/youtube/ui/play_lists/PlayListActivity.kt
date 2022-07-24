@@ -40,12 +40,14 @@ class PlayListActivity : BaseActivity<ActivityPlaylistsBinding>(), ItemClickList
     override fun initClick() {
     }
 
-    override fun onItemClick(id: String) {
+    override fun onItemClick(id: String, title: String, description: String) {
 //        val intent = Intent(this, PlayListVideosActivity::class.java)
 //        intent.putExtra("id", id)
 //        startActivity(intent)
         Intent(this, PlayListVideosActivity::class.java).apply {
             putExtra("id", id)
+            putExtra("description", description)
+            putExtra("title", title)
             startActivity(this)
         }
     }

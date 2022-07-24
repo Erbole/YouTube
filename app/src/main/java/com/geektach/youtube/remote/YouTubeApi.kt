@@ -13,7 +13,7 @@ interface YouTubeApi {
         @Query("part") part: String,
         @Query("channelId") channelId: String,
         @Query("maxResults") maxResults: String,
-        @Query("key") apiKey: String
+        @Query("key") apiKey: String,
     ): Response<Playlist>
 
     @GET("playlistItems")
@@ -21,6 +21,6 @@ interface YouTubeApi {
         @Query("part") part: String,
         @Query("key") apiKey: String,
         @Query("playlistId") playlistId: String,
-        @Query("maxResults") maxResults: String
+        @Query("maxResults") maxResults: String,
     ): Response<PlaylistItems>
 }

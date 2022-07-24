@@ -12,8 +12,7 @@ class PlaylistVideosAdapter(private var videos: ArrayList<Items>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
         return VideoViewHolder(
-            PlaylistVideosItemBinding.inflate(LayoutInflater.from(parent.context), parent, false
-            )
+            PlaylistVideosItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
@@ -23,7 +22,7 @@ class PlaylistVideosAdapter(private var videos: ArrayList<Items>) :
 
     override fun getItemCount() = videos.size
 
-    class VideoViewHolder(private val binding: PlaylistVideosItemBinding) :
+    inner class VideoViewHolder(private val binding: PlaylistVideosItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(items: Items) {
             binding.ivVideo.loadImage(items.snippet.thumbnails.medium.url)

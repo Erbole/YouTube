@@ -26,6 +26,8 @@ class PlayListVideosActivity : BaseActivity<ActivityPlayListVideosBinding>() {
                     binding.progressBarr.gone()
                     videos = it.body()?.items
                     binding.rvVideo.adapter = playlistsVideosAdapter
+                    binding.tvPlaylistTitle.text = intent.getStringExtra("title")
+                    binding.tvPlaylistDesc.text = intent.getStringExtra("description")
                 }
             }
     }

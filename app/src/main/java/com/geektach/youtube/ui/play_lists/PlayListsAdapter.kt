@@ -9,8 +9,7 @@ import com.geektach.youtube.extencions.loadImage
 import com.geektach.youtube.models.Items
 
 class PlayListsAdapter(private val playlists: ArrayList<Items>) :
-    RecyclerView.Adapter<PlayListsAdapter
-    .PlayListViewHolder>() {
+    RecyclerView.Adapter<PlayListsAdapter.PlayListViewHolder>() {
 
     fun setListener(listener: ItemClickListener) {
         onItemClickListener = listener
@@ -43,12 +42,16 @@ class PlayListsAdapter(private val playlists: ArrayList<Items>) :
                 R.string.video_series, items.contentDetails.itemCount
             )
             itemView.setOnClickListener {
-                onItemClickListener.onItemClick(items.id)
+                onItemClickListener.onItemClick(
+                    items.id,
+                    items.snippet.title,
+                    items.snippet.description
+                )
             }
         }
     }
 }
 
 interface ItemClickListener {
-    fun onItemClick(id: String)
+    fun onItemClick(id: String, title: String, description: String)
 }
